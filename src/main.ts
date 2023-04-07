@@ -1,4 +1,5 @@
 import { createPopup } from "./popup";
+import confetti from "canvas-confetti";
 import "./style.css";
 
 const secondsContainer = document.querySelector("#seconds")!;
@@ -70,6 +71,11 @@ function isTimeGood() {
   const difference = calcDifference();
   if (difference === 0) {
     createPopup("parfait");
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
     return;
   }
   if (difference < 5) {
