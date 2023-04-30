@@ -2,9 +2,9 @@ import { createPopup } from "./popup";
 import confetti from "canvas-confetti";
 import "./style.css";
 
-const secondsContainer = document.querySelector("#seconds")!;
-const hundredsContainer = document.querySelector("#hundreds")!;
-const infoContainer = document.querySelector("#info")!;
+const secondsContainer = document.querySelector("#seconds") as HTMLElement;
+const hundredsContainer = document.querySelector("#hundreds") as HTMLElement;
+const toggleButton = document.querySelector("#toggle-button") as HTMLElement;
 
 const timeBetweenUpdates = 10;
 const correctSeconds = 1;
@@ -15,14 +15,13 @@ let hundreds = 0;
 let isTimerActive = false;
 let interval: number;
 
-const infos = [
-  "Appuyez sur la barre espace pour démarrer le chronomètre",
-  "Arrêtez le chronomètre avec la barre espace à 1 seconde pile",
-];
+const colors = ["#00b200", "#b20000"];
+const buttonContents = ["démarrer", "arrêter"];
 
 window.addEventListener("keyup", e => {
   if (e.key === " ") toggleTimer();
 });
+toggleButton.addEventListener("click", () => toggleTimer());
 
 function toggleTimer() {
   isTimerActive = !isTimerActive;
@@ -35,7 +34,8 @@ function toggleTimer() {
 
 function startTimer() {
   interval = setInterval(updateTimer, timeBetweenUpdates);
-  infoContainer.textContent = infos[1];
+  toggleButton.style.setProperty("--color", colors[1]);
+  toggleButton.textContent = buttonContents[1];
 }
 function updateTimer() {
   incrementTime();
@@ -57,7 +57,8 @@ function stopTimer() {
   clearInterval(interval);
   isTimeGood();
   resetTime();
-  infoContainer.textContent = infos[0];
+  toggleButton.style.setProperty("--color", colors[0]);
+  toggleButton.textContent = buttonContents[0];
 }
 function resetTime() {
   seconds = 0;

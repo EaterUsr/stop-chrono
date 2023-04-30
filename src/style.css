@@ -6,6 +6,7 @@
 }
 html, body {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-weight: 900;
 }
 body {
   background: #f1f1f1;
@@ -15,24 +16,44 @@ body {
   height: 100vh;
 }
 #chrono {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   height: 50vh;
 }
-#info {
-  color: #888;
-  font-size: 1.1em;
+#toggle-button {
+  --color: #00b200;
+  color: #fff;
+  font-size: clamp(2em, 4.5vw, 2.4em);
+  background-color: var(--color);
+  border: none;
+  margin-top: clamp(3em, 15vw, 4.5em);
+  border-radius: 1em;
+  padding: 0.1em 1.7em;
+  cursor: pointer;
+  transition: transform .3s ease-in-out;
+}
+#toggle-button:focus-visible {
+  outline: var(--color) solid 2px;
+  outline-offset: 5px;
+}
+#toggle-button:hover {
+  transform: translateY(-0.3em);
 }
 #time {
   font-family: "Chivo Mono", monospace;
+  font-weight: initial;
 }
 #seconds {
-  font-size: 7em;
+  font-size: 9em;
 }
 #hundreds, #dot {
-  font-size: 3em;
+  font-size: 4em;
 }
 #popup-container {
   position: fixed;
