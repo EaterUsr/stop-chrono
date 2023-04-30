@@ -5,7 +5,7 @@
   user-select: none;
 }
 html, body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 body {
   background: #f1f1f1;
@@ -25,6 +25,9 @@ body {
   color: #888;
   font-size: 1.1em;
 }
+#time {
+  font-family: "Chivo Mono", monospace;
+}
 #seconds {
   font-size: 7em;
 }
@@ -42,7 +45,6 @@ body {
   align-items: center
 }
 #popup {
-  font-family: "Roboto", Arial, Hlevetica, sans-serif;
   color: var(--color);
   font-size: 2em;
   -webkit-text-stroke: 0.06em #111;
